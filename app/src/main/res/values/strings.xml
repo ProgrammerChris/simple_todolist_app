@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Todolist</string>
+    <string name="checkmark">\u2713</string>
+    <string name="add_note">Add Note</string>
+</resources>
