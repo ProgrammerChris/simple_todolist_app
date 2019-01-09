@@ -18,7 +18,7 @@ public class TodoWidgetProvider extends AppWidgetProvider {
             Intent intent = new Intent(context, TodolistRemoteViewsService.class);
 
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-            views.setRemoteAdapter(appWidgetId, R.id.widget_listview, intent);
+            views.setRemoteAdapter(R.id.widget_listview, intent);
             views.setEmptyView(R.id.widget_listview, R.id.empty_view);
 
             // Intent to make widget clickable to open the app.
