@@ -20,6 +20,7 @@ allprojects {
         google()
         jcenter()
     }
+    // To find deprecated methods
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {
             options.compilerArgs << "-Xlint:deprecation"

@@ -1,5 +1,6 @@
 package com.app.chris.todolist;
 
+import android.appwidget.AppWidgetManager;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -45,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
         noteViewModel.getAllNotes().observe(this, notes -> {
             //Update RecyclerView
             adapter.setNotes(notes);
+
+            // Intent to tell widget that data has been changed.
+            Intent initialUpdateIntent = new Intent(
+                    AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            initialUpdateIntent
+                    .setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            sendBroadcast(initialUpdateIntent);
         });
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,

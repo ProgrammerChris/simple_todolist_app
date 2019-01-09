@@ -1,5 +1,5 @@
 package com.app.chris.todolist;
-import android.appwidget.AppWidgetManager;
+
 import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
@@ -15,6 +15,8 @@ public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteView
 
     private List<Note> listOfNotes;
 
+    RemoteViews remoteViews;
+
     public TodolistRemoteViewsFactory(Context context, Intent intent) {
         this.context = context;
     }
@@ -24,6 +26,7 @@ public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteView
         NoteDatabase database = NoteDatabase.getInstance(context.getApplicationContext());
 
         noteDao = database.noteDao();
+        remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_note);
     }
 
     @Override
@@ -47,17 +50,15 @@ public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteView
     @Override
     public RemoteViews getViewAt(int position) {
 
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_note);
-
         if (listOfNotes.get(position).getPriority().equals("High")) {
-            views.setImageViewResource(R.id.widget_priority, R.drawable.high_pri);
+            remoteViews.setImageViewResource(R.id.widget_priority, R.drawable.high_pri);
         } else {
-            views.setImageViewResource(R.id.widget_priority, R.drawable.low_pri);
+            remoteViews.setImageViewResource(R.id.widget_priority, R.drawable.low_pri);
         }
 
-        views.setTextViewText(R.id.widget_note, listOfNotes.get(position).getNoteText());
+        remoteViews.setTextViewText(R.id.widget_note, listOfNotes.get(position).getNoteText());
 
-        return views;
+        return remoteViews;
     }
 
     @Override
