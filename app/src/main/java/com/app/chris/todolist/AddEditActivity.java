@@ -1,15 +1,15 @@
 package com.app.chris.todolist;
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.inputmethod.InputMethodManager;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 
 public class AddEditActivity extends AppCompatActivity {
 
@@ -60,9 +60,8 @@ public class AddEditActivity extends AppCompatActivity {
 
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
 
-        // To force the keyboard open automatically when the dialog appears
-        final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        noteText.requestFocus();
 
         highPri.setOnClickListener(view_highPri_selected -> {
             highPriChecked = true;
@@ -81,7 +80,7 @@ public class AddEditActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(cancelButtonPressed -> {
 
             // Hides the keyboard
-            imm.hideSoftInputFromWindow(cancelButtonPressed.getWindowToken(),0);
+            //imm.hideSoftInputFromWindow(cancelButtonPressed.getWindowToken(),0);
             highPriChecked = false;
             lowPriChecked = false;
             finish();
@@ -118,7 +117,7 @@ public class AddEditActivity extends AppCompatActivity {
                     }
 
                     // Hides the keyboard
-                    imm.hideSoftInputFromWindow(addNoteButtonPressed.getWindowToken(),0);
+                    //imm.hideSoftInputFromWindow(addNoteButtonPressed.getWindowToken(),0);
                     finish(); // End the activity, back to list of notes.
                 }
             }
