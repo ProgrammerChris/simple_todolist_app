@@ -26,4 +26,8 @@ public interface NoteDao { // DAO == Data Access Object
 
     @Query("SELECT * FROM note_table ORDER BY priority ASC")
     LiveData<List<Note>> getAllNotes();
+
+    // Used by widget to get all notes in DB
+    @Query("SELECT * FROM note_table ORDER BY priority ASC")
+    List<Note> getAllNotesAsList();
 }

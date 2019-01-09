@@ -20,6 +20,4 @@
         android:layout_margin="@dimen/fab_margin"
         android:background="@mipmap/add_item_button" />
 
-
-
 </android.support.design.widget.CoordinatorLayout>

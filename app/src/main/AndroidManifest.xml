@@ -23,6 +23,16 @@
             android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
+        <receiver android:name=".TodoWidgetProvider" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/appwidgetproviderinfo" />
+        </receiver>
+
+        <service android:name=".TodolistRemoteViewsService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"></service>
     </application>
 
 </manifest>

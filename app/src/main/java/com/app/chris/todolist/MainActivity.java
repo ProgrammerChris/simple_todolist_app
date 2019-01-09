@@ -10,13 +10,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.widget.Button;
+import android.widget.ListView;
 
-
-// TODO: Refactor to use RecyclerView instead of TableLayout(?)
-
-// TODO: Write list items and prioritymark to local storage(Whole list(TableLayout) to local storage)? (ROOM, SQLite)
-
-// TODO: Get list from local storage at startup. (ViewModel(LiveData)), repository) Code Flow Tutorial!
 
 // TODO: MAKE WIDGET!!!
 
@@ -33,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
+
+        // Finish activity if there is one already running, and resume the running activity. Like when app is open and widget is clicked to open the app.
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            finish();
+            return;
+        }
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

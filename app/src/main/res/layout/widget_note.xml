@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimary"
+    android:padding="8dp"
+    >
+
+    <ImageView
+        android:id="@+id/widget_priority"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/widget_margin"
+        android:layout_marginLeft="@dimen/widget_margin"
+        android:layout_marginRight="@dimen/widget_margin"
+        android:layout_marginEnd="@dimen/widget_margin"
+        android:contentDescription="priority"
+        android:src="@drawable/low_pri" />
+
+    <TextView
+        android:id="@+id/widget_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/widget_margin"
+        android:layout_marginRight="@dimen/widget_margin"
+        android:layout_toEndOf="@+id/widget_priority"
+        android:layout_toRightOf="@+id/widget_priority"
+        android:text="This is a note"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp" />
+</RelativeLayout>
