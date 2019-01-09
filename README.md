@@ -2,7 +2,7 @@
 
 Simple todolist app made partly by following "Coding in flow"s tutorials on Youtube and partially by myself.
 
-![](https://im.ezgif.com/tmp/ezgif-1-29fd14bf5c0f.gif)
+![](https://github.com/ProgrammerChris/simple_todolist_app/blob/master/demo.gif)
 
 --- Version 2 ---
 
