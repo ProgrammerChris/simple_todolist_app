@@ -4,7 +4,7 @@ Simple todolist app made partly by following "Coding in flow"s tutorials on Yout
 
 ![](https://im.ezgif.com/tmp/ezgif-1-29fd14bf5c0f.gif)
 
---- Version 1.1 ---
+--- Version 2 ---
 
 Add and delete notes with 2 priorities. 
 Save locally to SQLite Database on device. 
@@ -14,10 +14,10 @@ Tested on Huawei Mate 20 IRL.
 
 # Future plans:
 
-Plans for version 2.0
-- Add widget functionallity.
+Plans for version 2.1
+- More fuctions from widget
 
-plans for version 2.1
+Plans for version 2.2
 - Multiple lists
 
 Plans for version 3.0
