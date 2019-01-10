@@ -26,6 +26,7 @@
         <receiver android:name=".TodoWidgetProvider" >
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.app.chris.TodoWidgetProvider.ACTION_CLICK" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider"
                 android:resource="@xml/appwidgetproviderinfo" />

@@ -48,10 +48,8 @@ public class MainActivity extends AppCompatActivity {
             adapter.setNotes(notes);
 
             // Intent to tell widget that data has been changed.
-            Intent initialUpdateIntent = new Intent(
-                    AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-            initialUpdateIntent
-                    .setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            Intent initialUpdateIntent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            initialUpdateIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
             sendBroadcast(initialUpdateIntent);
         });
 

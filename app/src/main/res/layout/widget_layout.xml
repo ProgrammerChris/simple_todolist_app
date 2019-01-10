@@ -18,10 +18,5 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
         android:visibility="gone"/>
-    <Button
-        android:id="@+id/open_app"
-        android:background="@android:color/transparent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 </FrameLayout>
 

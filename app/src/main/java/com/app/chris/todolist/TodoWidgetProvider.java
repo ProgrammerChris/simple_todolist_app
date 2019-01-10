@@ -10,6 +10,8 @@ import android.widget.RemoteViews;
 
 public class TodoWidgetProvider extends AppWidgetProvider {
 
+    public static final String WIDGET_CLICKED = "WIDGET_CLICKED";
+
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
@@ -22,12 +24,12 @@ public class TodoWidgetProvider extends AppWidgetProvider {
             remoteView.setRemoteAdapter(R.id.widget_listview, intent);
             remoteView.setEmptyView(R.id.widget_listview, R.id.empty_view);
 
-            // Intent to make widget clickable to open the app.
             Intent openAppIntent = new Intent(context, MainActivity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, 0);
-            remoteView.setOnClickPendingIntent(R.id.open_app, pendingIntent);
+            openAppIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
 
-            // NO "setOnClickFillInIntent()"; ALL OF THE WIDGET TO BE CLICKED AND OPEN MAIN ACTIVITY ON CLICK! ITEMS DO NOT NEED A "onClick"-feature.
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, 0);
+            remoteView.setPendingIntentTemplate(R.id.widget_listview, pendingIntent);
+            remoteView.setOnClickFillInIntent(R.id.widget_note, openAppIntent);
 
             appWidgetManager.updateAppWidget(appWidgetId, remoteView);
         }
