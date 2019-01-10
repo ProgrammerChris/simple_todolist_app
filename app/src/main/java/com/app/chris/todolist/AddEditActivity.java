@@ -55,7 +55,7 @@ public class AddEditActivity extends AppCompatActivity {
                 lowPriChecked = true;
             }
             //setting the text into the edit text.
-            noteText.setText(noteToEdit.getNoteText());
+            noteText.setText(noteToEdit.getNoteText().trim());
         }
 
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);

@@ -10,8 +10,6 @@ import android.widget.RemoteViews;
 
 public class TodoWidgetProvider extends AppWidgetProvider {
 
-    public static final String WIDGET_CLICKED = "WIDGET_CLICKED";
-
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
 
@@ -24,12 +22,10 @@ public class TodoWidgetProvider extends AppWidgetProvider {
             remoteView.setRemoteAdapter(R.id.widget_listview, intent);
             remoteView.setEmptyView(R.id.widget_listview, R.id.empty_view);
 
+            // Handle if an item in the listView gets clicked.
             Intent openAppIntent = new Intent(context, MainActivity.class);
-            openAppIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, 0);
             remoteView.setPendingIntentTemplate(R.id.widget_listview, pendingIntent);
-            remoteView.setOnClickFillInIntent(R.id.widget_note, openAppIntent);
 
             appWidgetManager.updateAppWidget(appWidgetId, remoteView);
         }

@@ -50,8 +50,6 @@ public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteView
     @Override
     public RemoteViews getViewAt(int position) {
 
-
-
         if (listOfNotes.get(position).getPriority().equals("High")) {
             remoteViews.setImageViewResource(R.id.widget_priority, R.drawable.high_pri);
         } else {
@@ -60,8 +58,8 @@ public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteView
 
         remoteViews.setTextViewText(R.id.widget_note, listOfNotes.get(position).getNoteText());
 
-        Intent openAppIntent = new Intent();
         // Open app when note is clicked
+        Intent openAppIntent = new Intent();
         remoteViews.setOnClickFillInIntent(R.id.widget_note, openAppIntent);
 
         return remoteViews;

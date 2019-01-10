@@ -29,10 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
 
-        // Finish activity if there is one already running, and resume the running activity. Like when app is open and widget is clicked to open the app.
+        // Finish activity if there is one already running, and restart the running activity. Like when app is open and widget is clicked to open the app.
         if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
             finish();
-            return;
+            Intent restartIntent = new Intent(getBaseContext(), MainActivity.class);
+            restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(restartIntent);
         }
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
