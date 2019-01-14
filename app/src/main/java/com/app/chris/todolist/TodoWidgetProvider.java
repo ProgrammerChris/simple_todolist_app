@@ -24,8 +24,10 @@ public class TodoWidgetProvider extends AppWidgetProvider {
 
             // Handle if an item in the listView gets clicked.
             Intent openAppIntent = new Intent(context, MainActivity.class);
+
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, openAppIntent, 0);
             remoteView.setPendingIntentTemplate(R.id.widget_listview, pendingIntent);
+            remoteView.setOnClickPendingIntent(R.id.widget_frame, pendingIntent);
 
             appWidgetManager.updateAppWidget(appWidgetId, remoteView);
         }
@@ -36,15 +38,13 @@ public class TodoWidgetProvider extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
 
-        if (intent.getAction().equals(
-                AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
+        if (intent.getAction().equals(AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
 
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 
             ComponentName thisAppWidget = new ComponentName(context.getPackageName(), TodoWidgetProvider.class.getName());
             int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
             appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds,  R.id.widget_listview);
-
         }
     }
 }

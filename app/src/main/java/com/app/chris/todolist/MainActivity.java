@@ -13,10 +13,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.widget.Button;
 
 
-// TODO: MAKE WIDGET!!!
-
-// TODO: Design icon
-
 public class MainActivity extends AppCompatActivity {
 
     private NoteViewModel noteViewModel;
