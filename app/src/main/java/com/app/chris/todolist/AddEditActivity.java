@@ -2,6 +2,7 @@ package com.app.chris.todolist;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -24,11 +25,14 @@ public class AddEditActivity extends AppCompatActivity {
     private Button cancelButton;
     private Button addNoteButton;
 
+
+
     private Note noteToEdit;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // LOCK IN PORTRAIT MODE
         setContentView(R.layout.activity_addoredit);
 
         title = findViewById(R.id.addOrEditTitle);
@@ -90,30 +94,31 @@ public class AddEditActivity extends AppCompatActivity {
             if (highPriChecked || lowPriChecked) {
 
                 // Note(Entity) members
-                String noteTextAsString = String.valueOf(noteText.getText());
-                String priority = "";
+                // Using stringBuilder since these variables are to be changed if edited so to get less garbage collection this is used.
+                StringBuilder noteTextAsString = new StringBuilder();
+                StringBuilder priority = new StringBuilder();
 
-                if (!noteTextAsString.trim().isEmpty()) {
+                if (!String.valueOf(noteText.getText()).trim().isEmpty()) {
 
-                    noteTextAsString = Character.toUpperCase(noteTextAsString.charAt(0)) + noteTextAsString.substring(1);
+                    noteTextAsString.insert(0, Character.toUpperCase(String.valueOf(noteText.getText()).trim().charAt(0)) + String.valueOf(noteText.getText()).trim().substring(1));
 
                     if (highPriChecked) {
-                        priority = "High";
+                        priority.insert(0, "High");
                         highPriChecked = false;
                     } else if (lowPriChecked) {
-                        priority = "Low";
+                        priority.insert(0, "Low");
                         lowPriChecked = false;
                     }
 
                     // If note clicked, let it be edited, else add new note
                     if (extra.getSerializableExtra("Note") != null)   {
-                        Note updatedNote = new Note(priority, noteTextAsString);
+                        Note updatedNote = new Note(priority.toString(), noteTextAsString.toString());
                         updatedNote.setId(noteToEdit.getId());
                         // Update note in DB.
                         noteViewModel.update(updatedNote);
                     } else {
                         // Adds note to DB.
-                        noteViewModel.insert(new Note(priority, noteTextAsString));
+                        noteViewModel.insert(new Note(priority.toString(), noteTextAsString.toString()));
                     }
 
                     // Hides the keyboard

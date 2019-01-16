@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); // LOCK IN PORTRAIT MODE
         setContentView(R.layout.activity_main);
 
         // Finish activity if there is one already running, and restart the running activity. Like when app is open and widget is clicked to open the app.
