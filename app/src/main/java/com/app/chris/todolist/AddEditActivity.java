@@ -25,8 +25,6 @@ public class AddEditActivity extends AppCompatActivity {
     private Button cancelButton;
     private Button addNoteButton;
 
-
-
     private Note noteToEdit;
 
     @Override
@@ -93,32 +91,29 @@ public class AddEditActivity extends AppCompatActivity {
         addNoteButton.setOnClickListener(addNoteButtonPressed -> {
             if (highPriChecked || lowPriChecked) {
 
-                // Note(Entity) members
-                // Using stringBuilder since these variables are to be changed if edited so to get less garbage collection this is used.
-                StringBuilder noteTextAsString = new StringBuilder();
-                StringBuilder priority = new StringBuilder();
-
                 if (!String.valueOf(noteText.getText()).trim().isEmpty()) {
 
-                    noteTextAsString.insert(0, Character.toUpperCase(String.valueOf(noteText.getText()).trim().charAt(0)) + String.valueOf(noteText.getText()).trim().substring(1));
+                    // Note(Entity) members
+                    String noteTextAsString = Character.toUpperCase(String.valueOf(noteText.getText()).trim().charAt(0)) + String.valueOf(noteText.getText()).trim().substring(1);
+                    String priority = "";
 
                     if (highPriChecked) {
-                        priority.insert(0, "High");
+                        priority = "High";
                         highPriChecked = false;
                     } else if (lowPriChecked) {
-                        priority.insert(0, "Low");
+                        priority = "Low";
                         lowPriChecked = false;
                     }
 
                     // If note clicked, let it be edited, else add new note
                     if (extra.getSerializableExtra("Note") != null)   {
-                        Note updatedNote = new Note(priority.toString(), noteTextAsString.toString());
+                        Note updatedNote = new Note(priority, noteTextAsString);
                         updatedNote.setId(noteToEdit.getId());
                         // Update note in DB.
                         noteViewModel.update(updatedNote);
                     } else {
                         // Adds note to DB.
-                        noteViewModel.insert(new Note(priority.toString(), noteTextAsString.toString()));
+                        noteViewModel.insert(new Note(priority, noteTextAsString));
                     }
 
                     // Hides the keyboard
