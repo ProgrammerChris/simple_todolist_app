@@ -14,6 +14,7 @@
         android:background="@color/colorPrimary"
         tools:listitem="@layout/activity_note"
         />
+
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/empty_view"
         android:layout_width="match_parent"

@@ -43,7 +43,7 @@
                 android:layout_toEndOf="@+id/priority"
                 android:layout_toRightOf="@+id/priority"
                 android:padding="5dp"
-                android:text="This is a note"
+                android:text="This is a very very very very very very very long note"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
         </RelativeLayout>
