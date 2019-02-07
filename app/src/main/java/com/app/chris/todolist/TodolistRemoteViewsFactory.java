@@ -15,7 +15,7 @@ public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteView
 
     private List<Note> listOfNotes;
 
-    RemoteViews remoteViews;
+    private RemoteViews remoteViews;
 
     public TodolistRemoteViewsFactory(Context context, Intent intent) {
         this.context = context;
