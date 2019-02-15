@@ -10,11 +10,8 @@ import java.util.List;
 public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     private Context context;
-
     private NoteDao noteDao;
-
     private List<Note> listOfNotes;
-
     private RemoteViews remoteViews;
 
     public TodolistRemoteViewsFactory(Context context, Intent intent) {

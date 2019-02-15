@@ -77,18 +77,4 @@ public class NoteRepository {
             return null;
         }
     }
-
-    private static class DeleteAllNotesAsyncTask extends AsyncTask<Void, Void, Void>    {
-        private NoteDao noteDao;
-
-        private DeleteAllNotesAsyncTask(NoteDao noteDao)    {
-            this.noteDao = noteDao;
-        }
-
-        @Override
-        protected Void doInBackground(Void... notes) {
-            noteDao.deleteAllNotes();
-            return null;
-        }
-    }
 }

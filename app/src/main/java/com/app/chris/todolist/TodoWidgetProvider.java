@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
+import java.util.Objects;
+
 public class TodoWidgetProvider extends AppWidgetProvider {
 
     @Override
@@ -37,14 +39,13 @@ public class TodoWidgetProvider extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-
-        if (intent.getAction().equals(AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
+        if (Objects.requireNonNull(intent.getAction()).equals(AppWidgetManager.ACTION_APPWIDGET_UPDATE)) {
 
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 
             ComponentName thisAppWidget = new ComponentName(context.getPackageName(), TodoWidgetProvider.class.getName());
             int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
-            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds,  R.id.widget_listview);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.widget_listview);
         }
     }
 }

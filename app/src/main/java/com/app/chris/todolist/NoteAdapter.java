@@ -15,7 +15,6 @@ import java.util.List;
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
     private List<Note> notes = new ArrayList<>();
     private onItemClickListener listener;
-    private RecyclerView.ViewHolder viewHolder;
 
     @NonNull
     @Override
@@ -38,7 +37,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
 
     @Override
     public int getItemCount() {
-
         return notes.size();
     }
 

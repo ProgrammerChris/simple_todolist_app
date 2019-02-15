@@ -21,9 +21,6 @@ public interface NoteDao { // DAO == Data Access Object
     @Delete
     void delete(Note note);
 
-    @Query("DELETE FROM note_table")
-    void deleteAllNotes();
-
     @Query("SELECT * FROM note_table ORDER BY priority ASC")
     LiveData<List<Note>> getAllNotes();
 

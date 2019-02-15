@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
         noteViewModel.getAllNotes().observe(this, notes -> {
-            //Update RecyclerView
+            //Update RecyclerView with notes
             adapter.setNotes(notes);
 
             // Intent to tell widget that data has been changed.
@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             sendBroadcast(initialUpdateIntent);
         });
 
+        // Swipe to delete note
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder viewHolder1) {
@@ -63,11 +64,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
 
-
         roundAddNoteButton = findViewById(R.id.round_addNote_button);
         roundAddNoteButton.setOnClickListener((roundButtonPressed) -> {
             Intent intent = new Intent(MainActivity.this, AddEditActivity.class);
-            startActivity(intent);
+            startActivity(intent); // Start addEditActivity
 
         });
 
@@ -75,9 +75,9 @@ public class MainActivity extends AppCompatActivity {
         adapter.setOnItemClickListener((clickedNote) -> {
             Intent intent = new Intent(MainActivity.this, AddEditActivity.class);
             Note note = adapter.getNoteById(clickedNote.getId());
-            // send the note to the other activity for processing.
+            // add note to intent to be processed in addEditActivity
             intent.putExtra("Note", note);
-            startActivity(intent);
+            startActivity(intent); // Start addEditActivity
 
         });
     }

@@ -19,7 +19,7 @@ public class AddEditActivity extends AppCompatActivity {
     private TextView title;
     private Boolean highPriChecked = false;
     private Button highPri;
-    private Boolean lowPriChecked = false;
+    private Boolean lowPriChecked = true;
     private Button lowPri;
     private EditText noteText;
     private Button cancelButton;
@@ -36,11 +36,12 @@ public class AddEditActivity extends AppCompatActivity {
         title = findViewById(R.id.addOrEditTitle);
         highPri = findViewById(R.id.high_pri_button);
         lowPri = findViewById(R.id.low_pri_button);
+        lowPri.setText(R.string.checkmark); // Pre check button
         noteText = findViewById(R.id.add_note_text_box);
         cancelButton = findViewById(R.id.cancel_button);
         addNoteButton = findViewById(R.id.add_note_button);
 
-        // Getting the note sent from main activity, if there is one.
+        // Getting the note sent from main activity to be edited, if there is one.
         Intent extra = getIntent();
         if (extra.getSerializableExtra("Note") != null)   {
             noteToEdit = (Note) extra.getSerializableExtra("Note");
@@ -62,6 +63,7 @@ public class AddEditActivity extends AppCompatActivity {
 
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
 
+        // Softkeyboard toggle
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         noteText.requestFocus();
 
@@ -81,8 +83,6 @@ public class AddEditActivity extends AppCompatActivity {
 
         cancelButton.setOnClickListener(cancelButtonPressed -> {
 
-            // Hides the keyboard
-            //imm.hideSoftInputFromWindow(cancelButtonPressed.getWindowToken(),0);
             highPriChecked = false;
             lowPriChecked = false;
             finish();
@@ -116,8 +116,6 @@ public class AddEditActivity extends AppCompatActivity {
                         noteViewModel.insert(new Note(priority, noteTextAsString));
                     }
 
-                    // Hides the keyboard
-                    //imm.hideSoftInputFromWindow(addNoteButtonPressed.getWindowToken(),0);
                     finish(); // End the activity, back to list of notes.
                 }
             }
