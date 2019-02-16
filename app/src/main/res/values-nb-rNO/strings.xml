@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">"To-Do" Liste</string>
+    <string name="editNote">Rediger To-Do</string>
+    <string name="priority">Prioritet</string>
+    <string name="hint">To-do</string>
+    <string name="cancel">Avbryt</string>
+    <string name="add">Legg til</string>
+    <string name="save">Lagre</string>
+    <string name="checkmark">\u2713</string>
+    <string name="add_note">Legg til To-Do</string>
+    <string name="year_in_miliseconds">315569520000000000</string>
+</resources>

@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/addOrEditTitle"
         android:layout_centerHorizontal="true"
-        android:text="Priority"
+        android:text="@string/priority"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
@@ -77,7 +77,7 @@
         android:background="@drawable/rounded_text_field"
         android:enabled="true"
         android:singleLine="false"
-        android:hint="Add to list"
+        android:hint="@string/hint"
         android:paddingStart="20dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
@@ -100,7 +100,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_buttons"
             android:clickable="true"
-            android:text="Cancel" />
+            android:text="@string/cancel" />
 
         <Button
             android:id="@+id/add_note_button"
@@ -111,7 +111,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_buttons"
             android:clickable="true"
-            android:text="Add" />
+            android:text="@string/add" />
 
     </RelativeLayout>
 
