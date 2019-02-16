@@ -52,6 +52,7 @@ public class AddEditActivity extends AppCompatActivity {
             // checking of the priority of the clicked note.
             if (noteToEdit.getPriority().equals("High"))    {
                 highPri.setText(R.string.checkmark);
+                lowPri.setText("");
                 highPriChecked = true;
             } else if (noteToEdit.getPriority().equals("Low"))  {
                 lowPri.setText(R.string.checkmark);
