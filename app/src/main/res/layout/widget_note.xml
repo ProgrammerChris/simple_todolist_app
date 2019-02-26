@@ -28,5 +28,5 @@
         android:layout_toEndOf="@+id/widget_priority"
         android:layout_toRightOf="@+id/widget_priority"
         android:textColor="#FFFFFF"
-        android:textSize="10sp" />
+        android:textSize="18sp" />
 </RelativeLayout>
