@@ -2,6 +2,8 @@ package com.app.chris.todolist;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.util.TypedValue;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -49,8 +51,16 @@ public class TodolistRemoteViewsFactory implements RemoteViewsService.RemoteView
 
         if (listOfNotes.get(position).getPriority().equals("High")) {
             remoteViews.setImageViewResource(R.id.widget_priority, R.drawable.high_pri);
+            // Widget text size
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                remoteViews.setTextViewTextSize(R.id.widget_note, TypedValue.COMPLEX_UNIT_DIP, 26);
+            }
         } else {
             remoteViews.setImageViewResource(R.id.widget_priority, R.drawable.low_pri);
+            // Widget text size
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                remoteViews.setTextViewTextSize(R.id.widget_note, TypedValue.COMPLEX_UNIT_DIP, 16);
+            }
         }
 
         remoteViews.setTextViewText(R.id.widget_note, listOfNotes.get(position).getNoteText());

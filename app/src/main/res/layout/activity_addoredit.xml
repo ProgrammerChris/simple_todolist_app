@@ -15,7 +15,7 @@
         android:layout_marginTop="40dp"
         android:text="@string/add_note"
         android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textSize="40dp"
         android:textStyle="bold" />
 
     <TextView
@@ -26,29 +26,31 @@
         android:layout_centerHorizontal="true"
         android:text="@string/priority"
         android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:layout_marginTop="20dp"
+        android:textSize="20dp" />
 
     <RelativeLayout
         android:id="@+id/priorities"
         android:layout_below="@+id/priority"
         android:layout_width="250dp"
+        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
+
         <Button
             android:id="@+id/low_pri_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="60dp"
+            android:layout_alignParentRight="true"
             android:layout_marginEnd="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginRight="60dp"
             android:background="@drawable/low_pri"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
             android:textColor="#000000"
-            android:textSize="25sp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <Button
@@ -57,13 +59,12 @@
             android:layout_height="40dp"
             android:layout_marginLeft="60dp"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
             android:background="@drawable/high_pri"
             android:clickable="true"
             android:focusable="true"
             android:gravity="center"
             android:textColor="#000000"
-            android:textSize="25sp"
+            android:textSize="25dp"
             android:textStyle="bold" />
     </RelativeLayout>
 
@@ -84,7 +85,7 @@
         android:paddingEnd="20dp"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="25sp" />
+        android:textSize="25dp" />
 
     <RelativeLayout
         android:id="@+id/buttons"
@@ -100,7 +101,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_buttons"
             android:clickable="true"
-            android:text="@string/cancel" />
+            android:text="@string/cancel"
+            android:textSize="15dp"/>
 
         <Button
             android:id="@+id/add_note_button"
@@ -111,7 +113,8 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_buttons"
             android:clickable="true"
-            android:text="@string/add" />
+            android:text="@string/add"
+            android:textSize="15dp"/>
 
     </RelativeLayout>
 

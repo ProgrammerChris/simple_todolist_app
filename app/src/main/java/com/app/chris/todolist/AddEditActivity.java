@@ -46,8 +46,8 @@ public class AddEditActivity extends AppCompatActivity {
         if (extra.getSerializableExtra("Note") != null)   {
             noteToEdit = (Note) extra.getSerializableExtra("Note");
             // Changing the title and the text of the "Add" button.
-            title.setText(R.string.editNote); //TODO: If statement to change to NO when in norway
-            addNoteButton.setText(R.string.save); //TODO: If statement to change to NO when in norway
+            title.setText(R.string.editNote);
+            addNoteButton.setText(R.string.save);
 
             // checking of the priority of the clicked note.
             if (noteToEdit.getPriority().equals("High"))    {
