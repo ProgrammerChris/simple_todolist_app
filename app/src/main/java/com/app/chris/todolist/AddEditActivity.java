@@ -65,7 +65,7 @@ public class AddEditActivity extends AppCompatActivity {
         noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
 
         // Softkeyboard toggle
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         noteText.requestFocus();
 
         highPri.setOnClickListener(view_highPri_selected -> {
